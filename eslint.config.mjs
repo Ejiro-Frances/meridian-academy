@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     "coverage/**",
     "playwright-report/**",
     "test-results/**",
+    "design_handoff_pace_setter_website/**",
   ]),
 ]);
 

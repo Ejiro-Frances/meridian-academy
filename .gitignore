@@ -44,3 +44,6 @@ next-env.d.ts
 coverage/
 playwright-report/
 test-results/
+
+# local design reference bundle (exported from the Claude Design canvas)
+/design_handoff_pace_setter_website/

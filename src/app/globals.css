@@ -1,26 +1,248 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Meridian Academy design tokens, ported as a token remap from the design
+ * handoff (design_handoff_pace_setter_website/README.md, "Design tokens").
+ *
+ * Three brand scales on cool slate neutrals:
+ *   sage — the school's pale green. 50–400 are sage; 500–900 are its NAVY ink
+ *          and dark surfaces. The handoff overloads one scale on purpose so
+ *          the parent design system's green-* remaps cleanly — keep the split.
+ *   clay — warm secondary: logo, completed states, eyebrows.
+ *   teal — tertiary, for data and lab accents; teal-900 is pulled to navy.
+ *
+ * Tailwind's green-*, gold-*, teal-*, slate-* and red-* namespaces are
+ * remapped below deliberately: handoff references like `--green-50` or
+ * `--gold-200` must resolve to the school palette, never Tailwind defaults.
+ * No stock Tailwind green or gold may appear anywhere on the site.
+ *
+ * The primary is deliberately LIGHT (sage-200). Text or glyphs on a sage
+ * fill must be navy ink (brand-ink / primary-foreground), never white.
+ */
+@theme {
+  --color-sage-50: #f4faf6;
+  --color-sage-100: #e4f1e9;
+  --color-sage-200: #b9d8c2; /* brand primary */
+  --color-sage-300: #9bc8a9;
+  --color-sage-400: #7cb48d;
+  --color-sage-500: #35507f; /* navy from here down */
+  --color-sage-600: #24386a;
+  --color-sage-700: #16244c; /* brand ink */
+  --color-sage-800: #101a38;
+  --color-sage-900: #0b132b; /* deepest navy */
+
+  --color-clay-50: #fdf1ec;
+  --color-clay-100: #fadfd4;
+  --color-clay-200: #f5bca6;
+  --color-clay-300: #e99a78;
+  --color-clay-400: #d97350;
+  --color-clay-500: #c4573a; /* brand secondary */
+  --color-clay-600: #a5462d;
+  --color-clay-700: #843624;
+  --color-clay-800: #6a2b1d;
+  --color-clay-900: #522117;
+
+  /* the one true green, kept for success/growth signals only */
+  --color-leaf-500: #457c59;
+  --color-leaf-600: #2f5c41;
+
+  /* semantic text colors from the handoff: brand-ink, text-strong, text-subtle
+     (text-body is `foreground`, text-muted is `muted-foreground`) */
+  --color-brand-ink: #16244c;
+  --color-strong: #0f1b2d;
+  --color-subtle: #94a3b8;
+
+  /* green-* aliases the sage scale (handoff remap) */
+  --color-green-*: initial;
+  --color-green-50: #f4faf6;
+  --color-green-100: #e4f1e9;
+  --color-green-200: #b9d8c2;
+  --color-green-300: #9bc8a9;
+  --color-green-400: #7cb48d;
+  --color-green-500: #35507f;
+  --color-green-600: #24386a;
+  --color-green-700: #16244c;
+  --color-green-800: #101a38;
+  --color-green-900: #0b132b;
+
+  /* gold-* aliases the clay scale (handoff remap) */
+  --color-gold-50: #fdf1ec;
+  --color-gold-100: #fadfd4;
+  --color-gold-200: #f5bca6;
+  --color-gold-300: #e99a78;
+  --color-gold-400: #d97350;
+  --color-gold-500: #c4573a;
+  --color-gold-600: #a5462d;
+  --color-gold-700: #843624;
+  --color-gold-800: #6a2b1d;
+  --color-gold-900: #522117;
+
+  /* teal-* uses the design system's scale; 900 pulled toward navy */
+  --color-teal-*: initial;
+  --color-teal-50: #ebfafa;
+  --color-teal-100: #caf1f1;
+  --color-teal-200: #98e4e4;
+  --color-teal-300: #5ccfd0;
+  --color-teal-400: #2bb2b4;
+  --color-teal-500: #0e9597; /* brand tertiary */
+  --color-teal-600: #0b787a;
+  --color-teal-700: #0c6062;
+  --color-teal-800: #0e4e50;
+  --color-teal-900: #122a44;
+
+  /* slate-* uses the design system's cool neutral scale */
+  --color-slate-*: initial;
+  --color-slate-50: #f7f9fc;
+  --color-slate-100: #eef2f7;
+  --color-slate-200: #e1e7f0;
+  --color-slate-300: #cbd4e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f1b2d;
+
+  /* red-* trimmed to the design system's danger colors */
+  --color-red-*: initial;
+  --color-red-100: #fbdcdc;
+  --color-red-500: #e23d3d;
+  --color-red-600: #c62b2b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-hanken), "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* radius: the design system's fixed scale (see :root) */
+  --radius-*: initial;
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  /* elevation: navy-tinted shadows (see :root) */
+  --shadow-*: initial;
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-focus: var(--shadow-focus);
+  --shadow-brand: var(--shadow-brand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* surfaces & text on the slate neutrals */
+  --background: #f7f9fc; /* surface-page (slate-50) */
+  --foreground: #334155; /* text-body (slate-700) */
+  --card: #ffffff;
+  --card-foreground: #334155;
+  --popover: #ffffff;
+  --popover-foreground: #334155;
+
+  /* brand */
+  --primary: #b9d8c2; /* sage-200 — a light primary */
+  --primary-foreground: #0b132b; /* navy ink, never white on sage */
+  --secondary: #c4573a; /* clay-500 */
+  --secondary-foreground: #ffffff;
+  --accent: #e4f1e9; /* sage-100 — soft/hover surface */
+  --accent-foreground: #16244c; /* brand ink */
+
+  --muted: #eef2f7; /* slate-100 */
+  --muted-foreground: #64748b; /* text-muted (slate-500) */
+
+  --destructive: #c62b2b; /* red-600 */
+
+  --border: #e1e7f0; /* border-subtle (slate-200) */
+  --input: #cbd4e1; /* border-default (slate-300) */
+  --ring: #35507f; /* border-brand / focus — navy */
+
+  --chart-1: #0e9597; /* teal */
+  --chart-2: #c4573a; /* clay */
+  --chart-3: #35507f; /* navy */
+  --chart-4: #7cb48d; /* sage */
+  --chart-5: #457c59; /* leaf */
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #334155;
+  --sidebar-primary: #b9d8c2;
+  --sidebar-primary-foreground: #0b132b;
+  --sidebar-accent: #e4f1e9;
+  --sidebar-accent-foreground: #16244c;
+  --sidebar-border: #e1e7f0;
+  --sidebar-ring: #35507f;
+
+  /* radius — fixed scale from the design system */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px; /* inputs, small chips */
+  --radius-lg: 14px; /* buttons, small cards */
+  --radius-xl: 20px; /* cards, panels */
+  --radius-2xl: 28px; /* hero panels, image frames */
+
+  /* elevation — navy-tinted, never black */
+  --shadow-xs: 0 1px 2px rgba(11, 19, 43, 0.06);
+  --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.09), 0 1px 2px rgba(11, 19, 43, 0.06);
+  --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.09), 0 2px 4px rgba(11, 19, 43, 0.05);
+  --shadow-lg: 0 12px 28px rgba(11, 19, 43, 0.14), 0 4px 8px rgba(11, 19, 43, 0.07);
+  --shadow-xl: 0 24px 48px rgba(11, 19, 43, 0.2), 0 8px 16px rgba(11, 19, 43, 0.1);
+  --shadow-focus: 0 0 0 4px rgba(53, 80, 127, 0.28);
+  --shadow-brand: 0 8px 20px rgba(11, 19, 43, 0.3);
+}
+
+/* The design is light-only — the handoff has no dark mode. The `dark:` variant
+   stays class-gated and inert; add a `.dark` token block here if dark mode
+   ever becomes a requirement. */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    @apply bg-sage-100;
+  }
 }
