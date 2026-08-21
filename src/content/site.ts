@@ -36,7 +36,7 @@ export const site: SiteContent = siteContentSchema.parse({
   name: { first: "Meridian", second: "Academy", monogram: "MA" },
   locationLine: "Ibadan · Est. 1998",
   positioning:
-    "A co-educational secondary school in Ibadan — small classes, serious science, and a campus you can inspect before you visit.",
+    "Deep roots. High reach. A co-educational secondary school on nine hectares above the Ọ̀ṣun valley, Ibadan — JSS 1 through SS 3 since 1998.",
   nav: [
     { label: "Home", href: "/" },
     { label: "Academics", href: "/academics" },
@@ -46,8 +46,8 @@ export const site: SiteContent = siteContentSchema.parse({
   ],
   cta: { label: "Book a tour", href: "/admissions" },
   visit: {
-    address: "1 Meridian Drive, off Old Ife Road, Ibadan, Oyo State",
-    phone: "+234 803 000 1998",
+    address: "12 Akinyele Road, Ibadan, Oyo State",
+    phone: "+234 803 411 0219",
   },
-  imageNote: "Photographs are placeholders until real campus photography lands.",
+  imageNote: "Illustrative site — images are placeholders awaiting the school's own photography.",
 });
