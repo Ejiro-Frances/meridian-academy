@@ -53,18 +53,48 @@ export function FloorPlanExplorer() {
           </Button>
         ))}
       </div>
-      <div className="grid grid-cols-[1fr_344px] items-start gap-6">
+      <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[1fr_344px]">
         <div className="rounded-2xl border bg-card p-6.5 shadow-sm">
           <div className="mb-4.5 flex items-center justify-between">
             <span className="text-[19px] font-extrabold tracking-tight text-strong">
               {plan.label}
             </span>
-            <span className="inline-flex items-center gap-1.75 text-xs font-semibold tracking-widest uppercase text-subtle">
+            <span className="hidden items-center gap-1.75 text-xs font-semibold tracking-widest uppercase text-subtle md:inline-flex">
               <MousePointerClick aria-hidden className="size-3.5" />
               Click any room
             </span>
           </div>
-          <div className="relative h-107.5 w-full rounded-md border-2 border-input bg-background">
+          {/* phones get a room list instead of the percentage-positioned plan */}
+          <div className="grid gap-2 md:hidden">
+            {plan.rooms.map((r) => {
+              const on = r.code === room.code;
+              const s = kindStyles[r.kind];
+              return (
+                <button
+                  key={r.code}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => update({ room: r.code })}
+                  className={cn(
+                    "flex cursor-pointer items-center gap-2.5 rounded-lg border-[1.5px] px-3 py-2.5 text-left transition-colors",
+                    on ? "border-sage-600 bg-card" : s.box,
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "inline-flex min-w-16 items-center gap-1.25 font-mono text-[11px] font-bold",
+                      s.code,
+                    )}
+                  >
+                    <Icon name={s.icon} className="size-3.5" />
+                    {r.code}
+                  </span>
+                  <span className="text-[13px] font-semibold text-strong">{r.name}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="relative hidden h-107.5 w-full rounded-md border-2 border-input bg-background md:block">
             {plan.rooms.map((r) => {
               const on = r.code === room.code;
               const s = kindStyles[r.kind];

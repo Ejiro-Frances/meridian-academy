@@ -27,13 +27,13 @@ export function ArmRow({
       onClick={onSelect}
       aria-pressed={selected}
       className={cn(
-        "grid cursor-pointer grid-cols-[auto_1fr_auto_auto] items-center gap-5 rounded-xl border-[1.5px] bg-card px-5.5 py-5 text-left transition-[colors,transform] hover:translate-x-[3px]",
+        "grid cursor-pointer grid-cols-[auto_1fr_auto_auto] items-center gap-3 rounded-xl border-[1.5px] bg-card px-4 py-4 sm:gap-5 sm:px-5.5 sm:py-5 text-left transition-[colors,transform] hover:translate-x-[3px]",
         selected ? "border-sage-500 shadow-lg" : "border-border shadow-xs",
       )}
     >
       <span
         className={cn(
-          "grid size-13 place-items-center rounded-lg text-[15px] font-extrabold tracking-[-0.02em]",
+          "grid size-11 place-items-center sm:size-13 rounded-lg text-[15px] font-extrabold tracking-[-0.02em]",
           selected ? "bg-sage-50 text-sage-700" : "bg-background text-muted-foreground",
         )}
       >

@@ -26,7 +26,7 @@ export function FeeCalculator() {
   const s = useAdmissionsStore();
 
   return (
-    <div className="rounded-2xl border bg-card px-8 pt-7.5 pb-8 shadow-lg">
+    <div className="rounded-2xl border bg-card px-5 pt-6 pb-6 shadow-lg sm:px-8 sm:pt-7.5 sm:pb-8">
       <h2 className="mb-1.5 text-[27px] font-extrabold tracking-[-0.03em] text-strong">
         What a term will cost you
       </h2>
@@ -51,7 +51,7 @@ export function FeeCalculator() {
         </div>
         <div>
           <GroupLabel>Boarding</GroupLabel>
-          <div className="mt-2.75 flex gap-2">
+          <div className="mt-2.75 flex flex-col gap-2 sm:flex-row">
             {boardOpts.map((b) => {
               const on = s.board === b.id;
               return (

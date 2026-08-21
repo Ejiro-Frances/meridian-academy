@@ -16,7 +16,7 @@ export function LabsPanel() {
   const resetRef = useRef<(() => void) | null>(null);
 
   return (
-    <div className="grid grid-cols-[268px_1fr] items-start gap-6">
+    <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[268px_1fr]">
       <div className="grid gap-2.5">
         {labs.map((l) => {
           const on = l.id === lab.id;

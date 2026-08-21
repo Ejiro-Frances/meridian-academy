@@ -7,7 +7,7 @@ export function YearCard({ level }: { level: Level }) {
       aria-live="polite"
       className="mt-8.5 overflow-hidden rounded-xl border border-t-[3px] border-t-primary bg-card shadow-sm"
     >
-      <div className="grid grid-cols-[1.1fr_1fr] gap-10 px-8 py-7.5">
+      <div className="grid grid-cols-1 gap-6 px-5 py-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:px-8 lg:py-7.5">
         <div>
           <h3 className="mb-2 text-[26px] font-extrabold tracking-[-0.03em] text-strong">
             {level.label} — {level.sub.toLowerCase()}

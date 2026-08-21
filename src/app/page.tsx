@@ -9,11 +9,11 @@ export default function HomePage() {
     <main className="flex-1">
       <Hero />
       <StatBand />
-      <section className="mx-auto w-full max-w-310 px-7 pt-19.5 pb-2.5">
+      <section className="mx-auto w-full max-w-310 px-4 pt-12 pb-2.5 sm:px-7 lg:pt-19.5">
         <p className="text-[13px] font-bold tracking-[0.12em] uppercase text-secondary">
           The six-year climb
         </p>
-        <h2 className="mt-3 mb-1.5 text-[40px] font-extrabold tracking-[-0.03em] text-strong">
+        <h2 className="mt-3 mb-1.5 text-3xl font-extrabold tracking-[-0.03em] text-strong lg:text-[40px]">
           One pathway, six years, no guessing
         </h2>
         <p className="max-w-165 text-lg leading-relaxed text-muted-foreground">

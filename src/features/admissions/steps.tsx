@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export function AdmissionStepsRow() {
   return (
-    <ol className="mt-10 mb-16.5 grid grid-cols-5 gap-3.5">
+    <ol className="mt-8 mb-10 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:mt-10 lg:mb-16.5 lg:grid-cols-5">
       {admissionSteps.map((s, i) => (
         <li
           key={s.n}

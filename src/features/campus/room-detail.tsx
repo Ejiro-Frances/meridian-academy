@@ -42,7 +42,7 @@ export function RoomDetail({ plan, room }: { plan: FloorPlan; room: PlanRoom }) 
   return (
     <div
       aria-live="polite"
-      className="sticky top-23 overflow-hidden rounded-2xl border border-t-[3px] bg-card shadow-lg"
+      className="overflow-hidden rounded-2xl border border-t-[3px] bg-card shadow-lg lg:sticky lg:top-23"
       style={{ borderTopColor: accents[room.kind] }}
     >
       <div className="px-6 pt-6 pb-6.5">

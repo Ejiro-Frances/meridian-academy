@@ -7,12 +7,12 @@ import { termDiary } from "@/content/home";
 export function TermDiary() {
   return (
     <section className="bg-teal-900 text-white">
-      <div className="mx-auto grid w-full max-w-310 grid-cols-[1fr_1.15fr] items-center gap-14 px-7 py-18.5">
+      <div className="mx-auto grid w-full max-w-310 grid-cols-1 items-center gap-10 px-4 py-12 sm:px-7 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:py-18.5">
         <div>
           <p className="text-[13px] font-bold tracking-[0.12em] uppercase text-teal-200">
             {termDiary.eyebrow}
           </p>
-          <h2 className="mt-3.5 mb-3 text-[38px] font-extrabold tracking-[-0.03em]">
+          <h2 className="mt-3.5 mb-3 text-3xl font-extrabold tracking-[-0.03em] lg:text-[38px]">
             {termDiary.heading}
           </h2>
           <p className="mb-6.5 text-[17.5px] leading-relaxed text-white/78">{termDiary.lede}</p>

@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icon";
 import { ArmDetail } from "@/features/academics/arm-detail";
@@ -35,18 +37,23 @@ export function ArmsExplorer() {
           </Button>
         ))}
       </div>
-      <div className="grid grid-cols-[1.35fr_1fr] items-start gap-6.5">
+      <div className="grid grid-cols-1 items-start gap-6.5 lg:grid-cols-[1.35fr_1fr]">
         <div className="grid gap-3">
           {arms.map((arm, i) => (
-            <ArmRow
-              key={arm.code}
-              arm={arm}
-              selected={i === armIdx}
-              onSelect={() => setArm(String(i))}
-            />
+            <Fragment key={arm.code}>
+              <ArmRow arm={arm} selected={i === armIdx} onSelect={() => setArm(String(i))} />
+              {/* on phones the detail panel sits inline beneath the selected arm */}
+              {i === armIdx && (
+                <div className="lg:hidden">
+                  <ArmDetail arm={arm} />
+                </div>
+              )}
+            </Fragment>
           ))}
         </div>
-        <ArmDetail arm={arms[armIdx]} />
+        <div className="hidden lg:block">
+          <ArmDetail arm={arms[armIdx]} />
+        </div>
       </div>
     </div>
   );

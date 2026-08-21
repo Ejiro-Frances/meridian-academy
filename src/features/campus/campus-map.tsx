@@ -14,8 +14,8 @@ export function CampusMap() {
   const pin = mapPins.find((p) => p.n === Number(pinParam)) ?? mapPins[0];
 
   return (
-    <div className="grid grid-cols-[1fr_330px] items-start gap-6">
-      <div className="relative h-140 overflow-hidden rounded-2xl border bg-linear-160 from-green-50 to-teal-50">
+    <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[1fr_330px]">
+      <div className="relative aspect-10/7 w-full overflow-hidden rounded-2xl border bg-linear-160 from-green-50 to-teal-50 lg:aspect-auto lg:h-140">
         <Image
           src="/img/ir-map.png"
           alt="Schematic site plan of the campus, with numbered pins marking each landmark"
@@ -31,7 +31,7 @@ export function CampusMap() {
               aria-pressed={m.n === pin.n}
               onClick={() => setPin(String(m.n))}
               className={cn(
-                "pointer-events-auto absolute grid size-9 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full border-2 border-white text-white shadow-lg transition-transform hover:scale-[1.16]",
+                "pointer-events-auto absolute grid size-7 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full border-2 border-white text-white shadow-lg transition-transform hover:scale-[1.16] sm:size-9",
                 m.n === pin.n ? "bg-clay-500" : "bg-sage-600",
               )}
               style={{ left: `${m.x}%`, top: `${m.y}%` }}
@@ -42,7 +42,7 @@ export function CampusMap() {
         </div>
         <div
           aria-live="polite"
-          className="absolute bottom-5 left-5 max-w-87.5 rounded-xl bg-white/94 px-5 py-4 shadow-xl backdrop-blur-sm"
+          className="absolute inset-x-3 bottom-3 rounded-xl bg-white/94 px-4 py-3.5 shadow-xl backdrop-blur-sm sm:inset-x-auto sm:bottom-5 sm:left-5 sm:max-w-87.5 sm:px-5 sm:py-4"
         >
           <Badge>
             <MapPin />

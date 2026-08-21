@@ -18,7 +18,11 @@ export function CampusExplorer() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Campus tour sections" className="flex gap-1 border-b">
+      <div
+        role="tablist"
+        aria-label="Campus tour sections"
+        className="flex gap-1 overflow-x-auto border-b"
+      >
         {tabs.map((t) => {
           const on = t.value === tab;
           return (
@@ -29,7 +33,7 @@ export function CampusExplorer() {
               type="button"
               onClick={() => setTab(t.value)}
               className={cn(
-                "-mb-px inline-flex cursor-pointer items-center gap-2 border-b-2 px-3.5 py-3 text-[15px] font-semibold transition-colors",
+                "-mb-px inline-flex shrink-0 cursor-pointer items-center gap-2 border-b-2 px-3 py-3 whitespace-nowrap sm:px-3.5 text-[15px] font-semibold transition-colors",
                 on
                   ? "border-sage-700 text-sage-700"
                   : "border-transparent text-muted-foreground hover:text-foreground",

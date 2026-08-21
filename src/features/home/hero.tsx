@@ -11,13 +11,13 @@ export function Hero() {
     <section className="relative overflow-hidden bg-linear-155 from-sage-900 via-sage-700 via-62% to-teal-900 text-white">
       <div className="pointer-events-none absolute -top-45 -right-35 size-155 rounded-full bg-[radial-gradient(circle,rgba(14,149,151,.55),rgba(14,149,151,0)_68%)]" />
       <div className="pointer-events-none absolute -bottom-55 -left-30 size-130 rounded-full bg-[radial-gradient(circle,rgba(196,87,58,.26),rgba(196,87,58,0)_70%)]" />
-      <div className="relative mx-auto grid w-full max-w-310 grid-cols-[1.05fr_0.95fr] items-center gap-15 px-7 pt-21 pb-23">
+      <div className="relative mx-auto grid w-full max-w-310 grid-cols-1 items-center gap-12 px-4 pt-12 pb-16 sm:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-15 lg:pt-21 lg:pb-23">
         <div>
           <Badge className="bg-sage-100 text-leaf-600">
             <Sprout />
             {hero.badge}
           </Badge>
-          <h1 className="mt-5.5 text-[62px] leading-[1.02] font-extrabold tracking-[-0.035em] text-pretty">
+          <h1 className="mt-5.5 text-[40px] leading-[1.05] font-extrabold sm:text-[52px] lg:text-[62px] lg:leading-[1.02] tracking-[-0.035em] text-pretty">
             {hero.headline[0]}
             <br />
             {hero.headline[1]}
@@ -43,7 +43,7 @@ export function Hero() {
           </div>
         </div>
         <div className="relative">
-          <div className="relative h-107.5 overflow-hidden rounded-2xl border border-white/15 shadow-xl">
+          <div className="relative h-64 overflow-hidden rounded-2xl border border-white/15 shadow-xl sm:h-80 lg:h-107.5">
             <Image
               src={hero.image.src}
               alt={hero.image.alt}
@@ -52,7 +52,7 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -left-6 flex items-center gap-3 rounded-lg bg-card px-4.5 py-3.5 shadow-lg">
+          <div className="absolute -bottom-5 left-3 flex items-center gap-3 rounded-lg bg-card px-4.5 py-3.5 shadow-lg lg:-bottom-6 lg:-left-6">
             <span className="grid size-10 place-items-center rounded-full bg-sage-100">
               <UsersRound aria-hidden className="size-5 text-brand-ink" />
             </span>

@@ -55,7 +55,7 @@ export function LabViewer({
     <div
       role="img"
       aria-label="Interactive 3D model of the laboratory. A text description follows below."
-      className="h-140 overflow-hidden rounded-2xl bg-sage-900 shadow-xl"
+      className="h-96 overflow-hidden rounded-2xl bg-sage-900 shadow-xl sm:h-120 lg:h-140"
     >
       {status === "ready" ? (
         <lab-3d

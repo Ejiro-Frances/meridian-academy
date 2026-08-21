@@ -8,9 +8,9 @@ export const metadata: Metadata = { title: "Academics" };
 
 export default function AcademicsPage() {
   return (
-    <main className="mx-auto w-full max-w-310 flex-1 px-7 pt-13.5 pb-22.5">
+    <main className="mx-auto w-full max-w-310 flex-1 px-4 pt-8 pb-14 sm:px-7 lg:pt-13.5 lg:pb-22.5">
       <p className="text-[13px] font-bold tracking-[0.12em] uppercase text-secondary">Academics</p>
-      <h1 className="mt-3 mb-2 text-[46px] font-extrabold tracking-[-0.035em] text-strong">
+      <h1 className="mt-3 mb-2 text-4xl font-extrabold lg:text-[46px] tracking-[-0.035em] text-strong">
         Twenty-two arms. Forty-four form teachers. Every name here.
       </h1>
       <p className="max-w-175 text-lg leading-relaxed text-pretty text-muted-foreground">

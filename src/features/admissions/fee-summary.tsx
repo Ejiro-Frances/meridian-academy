@@ -59,7 +59,7 @@ export function FeeSummary() {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-between gap-5 rounded-xl bg-linear-150 from-sage-900 to-sage-700 px-6.5 py-6 shadow-brand">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-linear-150 from-sage-900 to-sage-700 px-5 py-5 shadow-brand max-lg:sticky max-lg:bottom-3 max-lg:z-10 sm:px-6.5 sm:py-6">
         <div className="grid gap-1">
           <span className="text-xs font-bold tracking-[0.13em] uppercase text-clay-200">
             Payable this term

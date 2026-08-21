@@ -9,8 +9,8 @@ const hues = ["text-teal-500", "text-brand-ink", "text-clay-500"];
 
 export function Pillars() {
   return (
-    <section className="mx-auto w-full max-w-310 px-7 py-19">
-      <div className="grid grid-cols-3 gap-6">
+    <section className="mx-auto w-full max-w-310 px-4 py-12 sm:px-7 lg:py-19">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {pillars.map((p, i) => (
           <Link
             key={p.title}

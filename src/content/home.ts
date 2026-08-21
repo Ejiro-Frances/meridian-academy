@@ -10,7 +10,7 @@ export const hero = {
   ratio: { figure: "1:16", label: "teacher ratio in practicals" },
   image: {
     src: "/img/ir-hero.png",
-    alt: "Illustration of the Meridian Academy campus at dusk — placeholder until real photography",
+    alt: "Illustration of the Meridian Academy campus — placeholder until real photography",
   },
 };
 
@@ -46,7 +46,7 @@ export const pillars: Pillar[] = z
       cta: "Tour them in 3D",
       href: "/campus",
       img: "/img/ir-p1.png",
-      alt: "Illustration of a laboratory bench with flasks and equipment",
+      alt: "Illustration representing the school laboratories",
     },
     {
       icon: "users",
@@ -55,7 +55,7 @@ export const pillars: Pillar[] = z
       cta: "See every arm",
       href: "/academics",
       img: "/img/ir-p2.png",
-      alt: "Illustration of a classroom with desks and a chalkboard",
+      alt: "Illustration representing a Meridian classroom",
     },
     {
       icon: "trees",
@@ -64,7 +64,7 @@ export const pillars: Pillar[] = z
       cta: "Walk the campus map",
       href: "/campus",
       img: "/img/ir-p3.png",
-      alt: "Illustration of the school grounds with trees and a footpath",
+      alt: "Illustration representing the school grounds",
     },
   ]);
 

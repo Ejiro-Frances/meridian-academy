@@ -30,7 +30,7 @@ export function StaffDirectory() {
 
   return (
     <div>
-      <div className="mb-6.5 grid grid-cols-3 gap-3.5">
+      <div className="mb-6.5 grid grid-cols-1 gap-3.5 md:grid-cols-3">
         {staffRooms.map((r) => {
           const on = r.id === room.id;
           return (
@@ -107,7 +107,7 @@ export function StaffDirectory() {
               Coordinated by {room.coordinator} · {room.where}
             </span>
           </div>
-          <div className="relative ml-auto w-75">
+          <div className="relative w-full md:ml-auto md:w-75">
             <Search
               aria-hidden
               className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-subtle"
@@ -121,7 +121,7 @@ export function StaffDirectory() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3" aria-live="polite">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
           {shown.map((t) => (
             <div
               key={t.name + t.subject}

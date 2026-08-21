@@ -6,13 +6,13 @@ import { clubs } from "@/content/clubs";
 export function Clubs() {
   return (
     <div className="mt-19.5">
-      <h2 className="mb-2 text-[34px] font-extrabold tracking-[-0.03em] text-strong">
+      <h2 className="mb-2 text-3xl font-extrabold lg:text-[34px] tracking-[-0.03em] text-strong">
         Beyond the timetable
       </h2>
       <p className="mb-6.5 text-[17.5px] text-muted-foreground">
         Every student joins one club and one house. Wednesdays after 2:10 pm belong to them.
       </p>
-      <div className="grid grid-cols-4 gap-4.5">
+      <div className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-4">
         {clubs.map((c) => (
           <div key={c.name} className="rounded-xl border bg-card p-4 shadow-sm">
             <div className="relative mb-4 h-37.5 overflow-hidden rounded-md">

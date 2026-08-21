@@ -26,7 +26,7 @@ export function ArmDetail({ arm }: { arm: Arm }) {
   return (
     <div
       aria-live="polite"
-      className="sticky top-23 overflow-hidden rounded-2xl border bg-card shadow-lg"
+      className="overflow-hidden rounded-2xl border bg-card shadow-lg lg:sticky lg:top-23"
     >
       <div className="bg-linear-150 from-sage-900 to-sage-700 px-6.5 pt-6.5 pb-6 text-white">
         <p className="text-xs font-bold tracking-[0.14em] uppercase text-clay-200">
