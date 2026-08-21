@@ -11,7 +11,7 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="ml-auto flex items-center gap-1">
+    <nav className="ml-auto hidden items-center gap-1 lg:flex">
       {site.nav.map(({ label, href }) => {
         const Icon = navIcons[href];
         const active = href === "/" ? pathname === "/" : pathname.startsWith(href);

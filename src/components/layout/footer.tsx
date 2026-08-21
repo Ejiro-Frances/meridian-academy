@@ -14,8 +14,8 @@ function FooterEyebrow({ children }: { children: React.ReactNode }) {
 export function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300">
-      <div className="mx-auto w-full max-w-310 px-7 pt-13 pb-10">
-        <div className="grid grid-cols-[1.4fr_1fr_1fr] gap-11">
+      <div className="mx-auto w-full max-w-310 px-4 pt-10 pb-8 sm:px-7 md:pt-13 md:pb-10">
+        <div className="grid grid-cols-1 gap-9 md:grid-cols-[1.4fr_1fr_1fr] md:gap-11">
           <div className="space-y-4">
             <Logo compact onDark />
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">{site.positioning}</p>
